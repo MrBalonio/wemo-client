@@ -168,6 +168,11 @@ WemoClient.prototype.setBinaryState = function(value, cb) {
   this.soapAction('urn:Belkin:service:basicevent:1', 'SetBinaryState', util.format(body, value), cb);
 };
 
+WemoClient.prototype.getBinaryState = function(cb) {
+  var body = '<GetBinaryState></GetBinaryState>';
+  this.soapAction('urn:Belkin:service:basicevent:1', 'GetBinaryState', util.format(body, value), cb);
+};
+
 WemoClient.prototype._onListenerAdded = function(eventName) {
   var serviceType = WemoClient.EventServices[eventName];
   if (serviceType && this.services[serviceType]) {
